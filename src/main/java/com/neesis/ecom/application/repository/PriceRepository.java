@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface PriceRepository {
 
-    List<Price> getPriceBySystemDateProductIdAndPriceList(Instant systemDate, Integer productId, Integer priceList);
+    List<Price> getPriceBySystemDateProductIdAndBrandId(Instant systemDate, Integer productId, Integer brandId);
 }

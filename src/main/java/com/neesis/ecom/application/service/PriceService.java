@@ -14,9 +14,9 @@ public class PriceService {
 
     private final PriceRepository priceDao;
 
-    public Price getPriceBySystemDateProductIdAndPriceList(String systemDate, Integer productId, Integer priceList) {
+    public Price getPriceBySystemDateProductIdAndBrandId(String systemDate, Integer productId, Integer brandId) {
         Instant filterDate = Instant.parse(systemDate);
-        List<Price> dbPrices = priceDao.getPriceBySystemDateProductIdAndPriceList(filterDate, productId, priceList);
+        List<Price> dbPrices = priceDao.getPriceBySystemDateProductIdAndBrandId(filterDate, productId, brandId);
 
         if(!dbPrices.isEmpty())
             return dbPrices.stream()

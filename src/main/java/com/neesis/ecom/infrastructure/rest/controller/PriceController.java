@@ -18,10 +18,10 @@ public class PriceController {
 
     private final PriceService priceService;
 
-    @GetMapping(value = "prices/get", params = {"systemDate", "productId", "priceList"})
-    public ResponseEntity<PriceDto> getPriceBySystemDateProductIdAndPriceList(@RequestParam String systemDate,
+    @GetMapping(value = "prices/get", params = {"systemDate", "productId", "brandId"})
+    public ResponseEntity<PriceDto> getPriceBySystemDateProductIdAndBrandId(@RequestParam String systemDate,
                                                                               @RequestParam Integer productId,
-                                                                              @RequestParam Integer priceList) {
-        return new ResponseEntity<>(priceMapper.toDto(priceService.getPriceBySystemDateProductIdAndPriceList(systemDate, productId, priceList)), HttpStatus.OK);
+                                                                              @RequestParam Integer brandId) {
+        return new ResponseEntity<>(priceMapper.toDto(priceService.getPriceBySystemDateProductIdAndBrandId(systemDate, productId, brandId)), HttpStatus.OK);
     }
 }

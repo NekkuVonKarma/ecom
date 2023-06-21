@@ -19,9 +19,9 @@ public class PriceDboRepository implements PriceRepository {
     private final PriceEntityMapper entityMapper;
 
     @Override
-    public List<Price> getPriceBySystemDateProductIdAndPriceList(Instant systemDate, Integer productId, Integer priceList) {
+    public List<Price> getPriceBySystemDateProductIdAndBrandId(Instant systemDate, Integer productId, Integer brandId) {
         List<Price> resultPrices = new ArrayList<>();
-        List<PriceEntity> dbPrices = priceRepository.getPriceBySystemDateProductIdAndPriceList(systemDate, productId, priceList);
+        List<PriceEntity> dbPrices = priceRepository.getPriceBySystemDateProductIdAndBrandId(systemDate, productId, brandId);
 
         dbPrices.forEach(dbPrice -> resultPrices.add(entityMapper.toDomain(dbPrice)));
 
