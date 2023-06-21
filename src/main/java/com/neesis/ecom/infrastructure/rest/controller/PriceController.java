@@ -1,6 +1,6 @@
 package com.neesis.ecom.infrastructure.rest.controller;
 
-import com.neesis.ecom.application.service.IPriceService;
+import com.neesis.ecom.application.service.PriceService;
 import com.neesis.ecom.infrastructure.rest.dto.PriceDto;
 import com.neesis.ecom.infrastructure.rest.mapper.PriceMapper;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ public class PriceController {
 
     private final PriceMapper priceMapper;
 
-    private final IPriceService priceService;
+    private final PriceService priceService;
 
     @GetMapping(value = "prices/get", params = {"systemDate", "productId", "priceList"})
     public ResponseEntity<PriceDto> getPriceBySystemDateProductIdAndPriceList(@RequestParam String systemDate,
