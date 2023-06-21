@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -15,7 +17,7 @@ public class PriceService {
     private final PriceRepository priceDao;
 
     public Price getPriceBySystemDateProductIdAndBrandId(String systemDate, Integer productId, Integer brandId) {
-        Instant filterDate = Instant.parse(systemDate);
+        Instant filterDate = OffsetDateTime.parse(systemDate).atZoneSameInstant(ZoneId.systemDefault()).toInstant();
         List<Price> dbPrices = priceDao.getPriceBySystemDateProductIdAndBrandId(filterDate, productId, brandId);
 
         if(!dbPrices.isEmpty())

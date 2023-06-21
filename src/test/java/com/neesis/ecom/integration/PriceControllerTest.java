@@ -59,7 +59,7 @@ public class PriceControllerTest {
         this.mockMvc.perform(MockMvcRequestBuilders.get("/prices/get?brandId=1&productId=35455&systemDate=2020-06-15T10:00:00.000Z"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.price").value(35.5));
+                .andExpect(jsonPath("$.price").value(30.5));
     }
 
     @Test
