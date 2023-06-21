@@ -13,10 +13,10 @@ import java.util.List;
 public interface SpringDataPriceRepository extends JpaRepository<PriceEntity, PriceEntityId> {
 
     @Query("SELECT p " +
-            "FROM PRICES p " +
-            "WHERE :systemDate BETWEEN p.START_DATE AND p.END_DATE " +
-            "   AND p.PRODUCT_ID = :productId " +
-            "   AND p.PRICE_LIST = :priceList")
+            "FROM PriceEntity p " +
+            "WHERE :systemDate BETWEEN p.startDate AND p.endDate " +
+            "   AND p.productId = :productId " +
+            "   AND p.priceList = :priceList")
     List<PriceEntity> getPriceBySystemDateProductIdAndPriceList(Instant systemDate, Integer productId, Integer priceList);
 
 }
